@@ -15,11 +15,14 @@ var moveCouples = function(row) {
     const j = row[i]%2 === 0 ? row[i]+1 : row[i]-1; // j is the target couple
     // If next number is not a couple to current
     if (row[i+1] !== j) {
+      // Swap couples
       // Find its couple at index j in pos and place where it belongs
       const jatin = pos[j];
       const temp = row[i+1];
       row[i+1] = row[jatin];
       row[jatin] = temp;
+
+      // Updated their positions
       // Where right couple was now is the wrong couple
       pos[temp] = jatin;
       // The right couple is where it needs to be now
